@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script> <!-- Agregamos la biblioteca CryptoJS -->
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <form action="/login" method="post" onsubmit="SubmitsEncry()">
+        <div>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+        </div>
+        <div> <!-- Campo para el captcha -->
+            <label for="captcha">Captcha:</label>
+            <input type="text" id="captcha" name="captcha" required>
+            <span><%= captcha %></span> <!-- Muestra el captcha generado -->
+        </div>
+        <input type="submit" value="Log in" class="btn btn-default" />
+    </form>
+
+    <script>
+        function SubmitsEncry() {
+            var txtPassword = document.getElementById("contraseña").value.trim(); // Cambiamos "Password" a "contraseña"
+
+            if (txtPassword !== "") {
+                var key = CryptoJS.enc.Utf8.parse('8080808080808080');
+                var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
+
+                var encryptedPassword = CryptoJS.AES.encrypt(txtPassword, key, {
+                    keySize: 128 / 8,
+                    iv: iv,
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+
+                document.getElementById("contraseña").value = encryptedPassword.toString(); // Convertimos el resultado a cadena y asignamos al campo contraseña
+            } else {
+                alert("Por favor, ingrese una contraseña válida."); // Agregamos un mensaje de alerta si la contraseña está vacía
+                return false; // Evitamos que el formulario se envíe si la contraseña está vacía
+            }
+        }
+    </script>
+</body>
+</html>
