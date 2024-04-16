@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+    <style>
+        .navbar-custom {
+            background-color: #0c1826;
+        }
+        .navbar-custom .nav-link img {
+            width: 150px;
+            height: auto;
+        }
+        .titulo-img {
+            max-width: 250px; 
+        }
+        .footer {
+            background-color: #0c1826;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .user-info {
+            background-color: #0c1826; 
+            border-radius: 10px;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .user-info h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-info ul li {
+            margin-bottom: 10px;
+        }
+
+        .user-info ul li strong {
+            font-weight: bold;
+        }
+        .mibtn{
+            background-color: white;
+            color: #0c1826;
+            font-weight: bold;
+            border-radius: 5px;
+            border: white;
+            padding: 5px;
+        }
+        .mibtn2{
+            background-color: #0c1826;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            border: #0c1826;
+            padding: 5px;
+        }
+        /* Estilos para el formulario */
+        .miFormContainer {
+            background-color: white; /* Cambiamos el color de fondo a blanco */
+            border: 2px solid #0c1826; /* Cambiamos el color del borde a azul oscuro */
+            border-radius: 10px;
+            padding: 20px;
+            color: #0c1826; /* Cambiamos el color del texto a azul oscuro */
+            margin-top: 20px; /* Agregamos un margen superior */
+        }
+
+        .miFormContainer h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .miFormContainer .form-group {
+            margin-bottom: 20px;
+        }
+
+        .miFormContainer .form-control {
+            background-color: #fff; /* Cambiamos el color de fondo de los campos de entrada a blanco */
+            color: #0c1826; /* Cambiamos el color del texto de los campos de entrada a azul oscuro */
+            border-radius: 5px;
+        }
+
+        .miFormContainer .mibtn {
+            background-color: white;
+            color: #0c1826;
+            font-weight: bold;
+            border-radius: 5px;
+            border: white;
+            padding: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <!-- Brand/logo and title image -->
+        <div class="d-flex align-items-center">
+            <button onclick="window.location.href='diseno'" style="border: none; background: none; padding: 0; margin: 0;">
+                <img src="assets/GuardianTrack.png" alt="Logo" style="width:125px;">
+            </button>
+            <div>
+                <img src="assets/titulo.png" alt="Título" class="titulo-img"> <!-- Aplica la clase "titulo-img" -->
+            </div>
+        </div>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/diseno">
+                    <img src="assets/btn_inicio.png" alt="btn_registros">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/nosotros">
+                    <img src="assets/btn_nosotros.png" alt="btn_nosotros">
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/btn_opciones.png" alt="btn_cerrarsesion">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/disenoen">Cambiar idioma</a>
+                    <a class="dropdown-item" href="/miperfil">Mi perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="user-info">
+                    <h2>Información Personal</h2>
+                    <ul>
+                        <li hidden><strong>ID:</strong> <%= usuario.ID %></li>
+                        <li><strong>Nombre de Usuario:</strong> <%= usuario.usuario %></li>
+                        <li><strong>Contraseña:</strong> <%= usuario.contrasena %></li>
+                        <li><strong>Correo Electrónico:</strong> <%= usuario.correo %></li>
+                        <br>
+                        <button class="mibtn" style="display: block; margin: 0 auto;">Cambiar Contraseña</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Formulario -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="miFormContainer"> <!-- Contenedor del formulario -->
+                    <form action="/updatePassword" method="post" class="miForm" onsubmit="SubmitsEncry()">
+                        <div class="miDiv">
+                            <h1>Nueva contraseña:</h1>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="nuevacontra" name="nuevacontra" required>
+                        </div>
+                        <button type="submit" class="mibtn2" style="display: block; margin: 0 auto;">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <br>
+
+    <!-- Footer -->
+    <footer class="footer">
+        ©2024 Todos los derechos reservados GuardianTrack    
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var cambiarContraseñaBtn = document.querySelector(".mibtn");
+            var formularioContainer = document.querySelector(".miFormContainer");
+            var nuevaContrasenaInput = document.getElementById("nuevacontra");
+            formularioContainer.style.display = "none";
+            
+            cambiarContraseñaBtn.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevenir el comportamiento predeterminado del botón
+                if (formularioContainer.style.display === "none") {
+                    formularioContainer.style.display = "block";
+                    // Establecer el valor del input nuevacontra igual a usuario.contrasena
+                    nuevaContrasenaInput.value = "<%= usuario.contrasena %>";
+                } else {
+                    formularioContainer.style.display = "none";
+                }
+            });
+        });
+    </script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

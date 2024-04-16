@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Estilos personalizados -->
+    <style>
+        .navbar-custom {
+            background-color: #0c1826;
+        }
+
+        .contenido {
+            padding: 20px; /* Espaciado interno del contenido */
+            margin-top: 20px; /* Margen superior */
+        }
+        .navbar-custom .nav-link img {
+            width: 150px;
+            height: auto;
+        }
+        .titulo-img {
+            max-width: 250px; /* Establece un ancho máximo para la imagen del título */
+        }
+        .footer {
+            background-color: #0c1826;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <!-- Brand/logo and title image -->
+        <div class="d-flex align-items-center">
+            <button onclick="window.location.href='diseno'" style="border: none; background: none; padding: 0; margin: 0;">
+                <img src="assets/GuardianTrack.png" alt="Logo" style="width:125px;">
+            </button>
+            <div>
+                <img src="assets/titulo.png" alt="Título" class="titulo-img"> <!-- Aplica la clase "titulo-img" -->
+            </div>
+        </div>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/diseno">
+                    <img src="assets/btn_inicio.png" alt="btn_registros">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/nosotros">
+                    <img src="assets/btn_nosotros.png" alt="btn_nosotros">
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/btn_opciones.png" alt="btn_cerrarsesion">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/disenoen">Cambiar idioma</a>
+                    <a class="dropdown-item" href="/miperfil">Mi perfil</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+   <!-- Información del proyecto -->
+   <div class="container contenido">
+    <div align="center">
+        <h1><b><i>"Porque su seguridad es nuestra máxima prioridad"</i></b></h1>
+    
+    <p>Nos preocupamos por su seguridad y la de su familia, nos hemos dedicado a realizar exhaustivas investigaciones para crear GuardianTrack, un sistema de seguridad para aumentar la protección del hogar.</p>
+    <p><b><i>GuardianTrack ofrece:</i></b></p>
+</div>
+    <ul>
+   
+        <li>
+            <p><b><i>Acceso Seguro:</i></b></p>
+            <p>Muchas personas se preocupan por la seguridad de sus hogares, especialmente en áreas con altos índices de delincuencia. Por ello, nuestro sistema ofrece un método de acceso seguro, utilizando reconocimiento facial y huella digital, lo que reduce la posibilidad de intrusión no autorizada.</p>
+        </li>
+        <li>
+            <p><b><i>Identificación de detección a personas:</i></b></p>
+            <p>Nuestro sistema emplea la detección de personas desconocidas mediante el reconocimiento facial que permite a los propietarios de viviendas estar al tanto de quién entra y sale de su propiedad en todo momento.</p>
+        </li>
+        <li>
+            <p><b><i>Notificaciones a tiempo real:</i></b></p>
+            <p>Enviamos automáticamente correos electrónicos con imágenes de personas desconocidas detectadas a los propietarios, como una alerta inmediata sobre posibles amenazas.</p>
+        </li>
+    </ul>
+    
+    <div align="center"><p><b><i>¡Y mucho más!
+    </i></b></p> </div>
+</div>
+
+<!-- Footer -->
+    <footer class="footer">
+        ©2024 Todos los derechos reservados GuardianTrack 
+    </footer>
+</body>
+</html>
